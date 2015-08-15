@@ -9,10 +9,8 @@ import (
 	"net/http"
 	"net/url"
 	"os"
-	"os/signal"
 	"path"
 	"strings"
-	"syscall"
 	"time"
 )
 
@@ -63,9 +61,9 @@ func Parse() {
 	Generation++
 	issueAllFlagChangeCallbacks()
 
-	ch := make(chan os.Signal)
-	signal.Notify(ch, syscall.SIGHUP)
-	go sighupHandler(ch)
+	//ch := make(chan os.Signal)
+	//signal.Notify(ch, syscall.SIGHUP)
+	//go sighupHandler(ch)
 
 	go configUpdater()
 }
